@@ -1,0 +1,236 @@
+:root {
+  color-scheme: light;
+  --papel: #f4efe4;
+  --tinta: #1c2430;
+  --teal: #0e5f5c;
+  --teal-oscuro: #0a3f3d;
+  --linea: #d9d0c0;
+  --tarjeta: #fffdf8;
+  --aviso: #8a3e12;
+  --aviso-fondo: #f6ddcf;
+  --sombra: 0 12px 30px rgba(28, 36, 48, 0.06);
+  font-family: "Segoe UI", Candara, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(14, 95, 92, 0.08), transparent 28rem),
+    var(--papel);
+  color: var(--tinta);
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  padding: 1.25rem 1.5rem 0.5rem;
+}
+
+.marca {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--teal);
+}
+
+h1 {
+  margin: 0.15rem 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.salud {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #5c6570;
+}
+
+.marco {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem 1.5rem;
+  min-height: calc(100vh - 6rem);
+}
+
+aside, main {
+  background: var(--tarjeta);
+  border: 1px solid var(--linea);
+  border-radius: 18px;
+  box-shadow: var(--sombra);
+}
+
+aside {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+aside h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.ayuda, .vacio {
+  margin: 0;
+  color: #5c6570;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.caso {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--linea);
+  background: #fbf7f0;
+  color: var(--tinta);
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  cursor: pointer;
+}
+
+.caso strong { display: block; }
+.caso span { color: #5c6570; font-size: 0.82rem; }
+
+.caso:hover, .secundario:hover, #enviar:hover { border-color: var(--teal); }
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+}
+
+#historial {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.burbuja {
+  max-width: 46rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 14px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.usuario {
+  align-self: flex-end;
+  background: var(--teal);
+  color: white;
+}
+
+.asistente {
+  align-self: flex-start;
+  background: #f7f1e6;
+  border: 1px solid var(--linea);
+}
+
+.asistente.pide-confirmacion {
+  background: var(--aviso-fondo);
+  border-color: #e0b59a;
+}
+
+.aviso {
+  margin: 0 0 0.45rem;
+  color: var(--aviso);
+  font-weight: 700;
+}
+
+.herramienta {
+  align-self: stretch;
+  background: white;
+  border: 1px dashed var(--teal);
+  border-radius: 12px;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.92rem;
+}
+
+.herramienta h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--teal-oscuro);
+}
+
+.herramienta p { margin: 0.2rem 0; }
+
+details { margin-top: 0.35rem; }
+pre {
+  overflow: auto;
+  background: #f6f3ec;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+}
+
+form {
+  border-top: 1px solid var(--linea);
+  padding: 0.9rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+label { font-size: 0.85rem; color: #5c6570; }
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  background: #fff;
+}
+
+.acciones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.estado { margin: 0; color: var(--teal); font-weight: 600; }
+
+button {
+  font: inherit;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+}
+
+#enviar {
+  background: var(--teal);
+  color: white;
+  border: 1px solid var(--teal-oscuro);
+}
+
+.secundario, .caso {
+  background: transparent;
+}
+
+.secundario {
+  border: 1px solid var(--linea);
+  margin-top: auto;
+}
+
+button:disabled { opacity: 0.6; cursor: wait; }
+
+@media (max-width: 800px) {
+  .marco { grid-template-columns: 1fr; }
+  .barra { flex-direction: column; align-items: start; }
+  aside { order: 2; }
+}

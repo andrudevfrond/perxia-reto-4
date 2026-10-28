@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro como proveedor</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="barra">
+      <div>
+        <p class="marca">Periferia · Administrativo</p>
+        <h1>Registro como proveedor</h1>
+      </div>
+      <p id="salud" class="salud">Comprobando el servicio…</p>
+    </header>
+    <div class="marco">
+      <aside>
+        <h2>Casos</h2>
+        <p class="ayuda">Elige un caso para armar el mensaje. El agente no envía nada hasta que lo confirmes.</p>
+        <div id="casos"></div>
+        <button id="nueva" type="button" class="secundario">Nueva sesión</button>
+      </aside>
+      <main>
+        <ol id="historial" aria-live="polite"></ol>
+        <form id="formulario">
+          <label for="mensaje">Mensaje para el agente</label>
+          <textarea id="mensaje" rows="3" placeholder="Procesa el caso…"></textarea>
+          <div class="acciones">
+            <p id="estado" class="estado" hidden>Pensando…</p>
+            <button id="enviar" type="submit">Enviar</button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
