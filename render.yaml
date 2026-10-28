@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: perxia-registro-proveedor
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: MAX_TOOL_ITERATIONS
+        value: "25"
+      - key: MAX_SESSION_TOKENS
+        value: "100000"
